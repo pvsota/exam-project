@@ -1,0 +1,23 @@
+{
+  "name": "exam-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "my-sass": "node-sass scss/style.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cichyadam/exam-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cichyadam/exam-project/issues"
+  },
+  "homepage": "https://github.com/cichyadam/exam-project#readme",
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
