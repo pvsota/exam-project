@@ -30,4 +30,3 @@ json.beertypes.forEach(element => {
 });
 
 
-
