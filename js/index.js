@@ -38,7 +38,11 @@ json.beertypes.forEach(element => {
     clone.querySelector('.flavour').textContent = element.description.flavour;
     clone.querySelector('.mouthfeel').textContent = element.description.mouthfeel;
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
-    clone.querySelector('img').src = "images/" + element.label
+    clone.querySelector('img').src = "images/" + element.label;
+    let description = clone.querySelector('.description');
+    clone.querySelector('button').addEventListener("click",()=>{
+        description.classList.toggle('hidden');
+    })
 
     parent.appendChild(clone);
 });
