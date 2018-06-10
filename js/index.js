@@ -1,3 +1,5 @@
+window.addEventListener("load", loadJson());
+function loadJson(){
 //get data
 let data = FooBar.getData();
 //transfer data to JSON
@@ -25,8 +27,11 @@ json.beertypes.forEach(element => {
     clone.querySelector('.flavour').textContent = element.description.flavour;
     clone.querySelector('.mouthfeel').textContent = element.description.mouthfeel;
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
+    clone.querySelector('img').src = "images/" + element.label
 
     parent.appendChild(clone);
 });
 
+}
+setInterval(loadJson,3000);
 
