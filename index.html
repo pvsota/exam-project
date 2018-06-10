@@ -8,26 +8,40 @@
     <title>Document</title>
 </head>
 <body>
-
-    <section class="que"></section>
-    <section class="taps"></section>
-    <section class="bartenders"></section>
-    <section class="beers">
-        <template id="beer">
-            <article class="beer-info">
-                <h3 class="name"></h3>
-                <h5 class="category"></h5>
-                <p class="alc"></p>
-                <div class="decription">
-                    <p class="appearance"></p>
-                    <p class="aroma"></p>
-                    <p class="flavour"></p>
-                    <p class="mouthfeel"></p>
-                    <p class="overall-impression"></p>
-                </div>
-            </article>
-        </template>
-    </section>
+    <div id="my-side-nav" class="sidenav">
+        <a href="#">Que</a>
+        <a href="#">Taps</a>
+        <a href="#">Bartenders</a>
+        <a href="#">Beers</a>
+    </div>
+    <main>
+        <section class="que"></section>
+        <section class="taps"></section>
+        <section class="bartenders"></section>
+        <section class="beers">
+            <template id="beer">
+                <article class="beer-info">
+                    <div class="basic">
+                        <div class="pic">
+                                <img src="">
+                            </div>
+                        <div class="info">
+                            <h3 class="name"></h3>
+                            <h5 class="category"></h5>
+                            <p class="alc"></p>
+                        </div>
+                    </div>
+                    <div class="decription hidden">
+                        <p class="appearance"></p>
+                        <p class="aroma"></p>
+                        <p class="flavour"></p>
+                        <p class="mouthfeel"></p>
+                        <p class="overall-impression"></p>
+                    </div>
+                </article>
+            </template>
+        </section>
+    </main>
     
 </body>
 <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
