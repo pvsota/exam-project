@@ -1,5 +1,5 @@
+let queArray = [];
 window.addEventListener("load", loadJson());
-
 function loadJson(){
 //get data
 let data = FooBar.getData();
@@ -9,12 +9,22 @@ const json = JSON.parse(data);
 console.log(json);
 console.log("Bar named " + json.bar.name + " closing at: " + json.bar.closingTime);
 console.log("People in the que: " + json.queue.length);
+console.log("People getting served: " + json.serving.length);
+queArray.push(json.queue.length);
+console.log(queArray)
+
 
 json.bartenders.forEach(element => {
     console.log(element.name +" is "+ element.status);
     
 });
-//select the template from HTML to get the info about beers
+}
+function getBeers(){
+    //get data
+let data = FooBar.getData();
+//transfer data to JSON
+const json = JSON.parse(data);
+    //select the template from HTML to get the info about beers
 let template = document.querySelector("#beer").content;
 let parent = document.querySelector(".beers");
 //run forEach method to loop through all the beers we have in object
@@ -32,9 +42,9 @@ json.beertypes.forEach(element => {
 
     parent.appendChild(clone);
 });
-
 }
-setInterval(loadJson,3000);
+getBeers();
+setInterval(loadJson,1000);
 
 
 // Chart.js
