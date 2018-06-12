@@ -12,9 +12,9 @@
 </head>
 <body>
     <div id="my-side-nav" class="sidenav">
-            <a href="#">Que</a>
-            <a href="#">Taps</a>
-            <a href="#">Bartenders</a>
+            <a href="#" id="que-section">Que</a>
+            <a href="#" id="taps-section">Taps</a>
+            <a href="#" id="bartenders-section">Bartenders</a>
             <a href="#" id="beers-section">Beers</a>
         </div>
     <main>
@@ -53,8 +53,12 @@
             </div>
         </div>
     </section>
-    <section class="taps"></section>
-    <section class="bartenders"></section>
+    <section class="taps hidden">
+        <h2>Taps</h2>
+    </section>
+    <section class="bartenders hidden">
+        <h2>Bartenders</h2>
+    </section>
     <section class="beers hidden">
         <template id="beer">
             <article class="beer-info">
