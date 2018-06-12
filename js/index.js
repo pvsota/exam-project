@@ -146,6 +146,29 @@ json.serving.forEach(e=>{
 
 
 }
+function getTaps(){
+  //get data
+let data = FooBar.getData();
+//transfer data to JSON
+const json = JSON.parse(data);
+  //select the template from HTML to get the info about taps
+let template = document.querySelector("#tap").content;
+let parent = document.querySelector(".taps-grid");
+//run forEach method to loop through all the taps we have in object
+parent.innerHTML = "";
+json.taps.forEach(element => {
+  let clone = template.cloneNode(true);
+  clone.querySelector('.tap-name').textContent = element.beer;
+  clone.querySelector('.capacity').textContent = (element.level*0.01) + " litres";
+  if (element.inUse){
+    clone.querySelector('.in-use').textContent = "Tap is currently in use";
+  }
+
+
+  parent.appendChild(clone);
+});
+}
+getTaps();
 getOrders();
 
 }
@@ -177,6 +200,8 @@ json.beertypes.forEach(element => {
     parent.appendChild(clone);
 });
 }
+
+
 //navigation links
 let queSection = document.querySelector('.que');
 let tapsSection = document.querySelector('.taps');
