@@ -8,37 +8,71 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: #ffff;
   overflow-x: hidden;
-  padding-top: 60px;
   border-right: grey solid 2px; }
+  .sidenav #logo {
+    padding: 10px 0 0 15px;
+    width: 120%;
+    border-bottom: grey solid 2px; }
   .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 20px 0px 20px 30px;
     text-decoration: none;
     font-size: 25px;
-    color: #fff;
-    display: block; }
-  .sidenav img {
-    width: 75%; }
+    color: #ffff;
+    display: block;
+    border-right: #ffffff solid 2px;
+    transition: 500ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 500ms;
+    -webkit-transition-timing-function: ease-in-out; }
+  .sidenav a:hover {
+    border-right: #000000 solid 2px; }
+  .sidenav svg {
+    width: 65%;
+    transition: 250ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 250ms;
+    -webkit-transition-timing-function: ease-in-out; }
+  .sidenav svg:hover {
+    fill: #545454; }
 
 main {
-  margin-left: 200px; }
+  background-color: #f4f4f4;
+  margin-left: 100px; }
 
-.orders h2 {
-  text-align: center; }
-
-.orders .grid-orders {
+.topbar {
+  height: 86px;
+  padding: 25px 25px 25px 125px;
+  background-color: #ffff;
+  border-bottom: grey solid 2px;
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .topbar .time {
+    border: grey solid 1px; }
+  .topbar .clients_counter {
+    border: grey solid 1px; }
+  .topbar .beer_counter {
+    border: grey solid 1px; }
+  .topbar .login {
+    border: grey solid 1px; }
 
-.orders .que-info,
-.orders .in-serve-info {
-  display: flex;
-  align-content: space-between; }
-
-.orders .serve-order,
-.orders .order {
-  padding-left: .5em; }
+.orders {
+  background-color: #ffff;
+  margin: 25px;
+  padding: 50px; }
+  .orders h2 {
+    text-align: center; }
+  .orders .grid-orders {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+  .orders .que-info,
+  .orders .in-serve-info {
+    display: flex;
+    align-content: space-between; }
+  .orders .serve-order,
+  .orders .order {
+    padding-left: .5em; }
 
 .beers {
   display: grid;

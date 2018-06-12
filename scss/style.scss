@@ -1,3 +1,4 @@
+$main-color: #ffff;
 body {
     font-size: 1em;
     //green #79cc6d
@@ -10,25 +11,68 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: $main-color;
     overflow-x: hidden;
-    padding-top: 60px;
     border-right: grey solid 2px;
+    #logo{
+        padding:10px 0 0 15px;
+        width:120%;
+        border-bottom: grey solid 2px;
+    }
     a{
-        padding: 8px 8px 8px 32px;
+        padding: 20px 0px 20px 30px;
         text-decoration: none;
         font-size: 25px;
-        color: #fff;
+        color: $main-color;
         display: block;
+        border-right: #ffffff solid 2px;
+        transition: 500ms;
+        transition-timing-function: ease-in-out;
+        -webkit-transition: 500ms;
+        -webkit-transition-timing-function: ease-in-out;
     }
-    img{
-        width: 75%;
+    a:hover{
+        border-right: #000000 solid 2px;
+    }
+    svg{ 
+        width: 65%;
+        transition: 250ms;
+        transition-timing-function: ease-in-out;
+        -webkit-transition: 250ms;
+        -webkit-transition-timing-function: ease-in-out;
+    }
+    svg:hover{
+        fill: #545454;
     }
 }
 main{
-    margin-left: 200px;
+    background-color: #f4f4f4;
+    margin-left: 100px;
+}
+.topbar{
+    height: 86px;
+    padding: 25px 25px 25px 125px;
+    background-color: $main-color;
+    border-bottom: grey solid 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .time{
+        border: grey solid 1px;
+    }
+    .clients_counter{
+        border: grey solid 1px;
+    }
+    .beer_counter{
+        border: grey solid 1px;
+    }
+    .login{
+        border: grey solid 1px;
+    }
 }
 .orders{
+    background-color: $main-color;
+    margin: 25px;
+    padding: 50px;
     h2{
         text-align: center;
 
