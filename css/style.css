@@ -21,6 +21,22 @@ body {
 main {
   margin-left: 200px; }
 
+.orders h2 {
+  text-align: center; }
+
+.orders .grid-orders {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+.orders .que-info,
+.orders .in-serve-info {
+  display: flex;
+  align-content: space-between; }
+
+.orders .serve-order,
+.orders .order {
+  padding-left: .5em; }
+
 .beers {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; }

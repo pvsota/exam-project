@@ -7,24 +7,55 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <title>Document</title>
+    <title>Foo Bar</title>
     
 </head>
 <body>
-    <div class="container">
-        <canvas id="myChart"></canvas>
-    </div>
     <div id="my-side-nav" class="sidenav">
             <a href="#">Que</a>
             <a href="#">Taps</a>
             <a href="#">Bartenders</a>
-            <a href="#">Beers</a>
+            <a href="#" id="beers-section">Beers</a>
         </div>
     <main>
-    <section class="que"></section>
+    <section class="que">
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="orders">
+            <h2>Orders total: <span class="orders-total"></span></h2>
+            <div class="grid-orders">
+                <div><h2>Orders in queue</h2>
+                    <div class="in-que">
+                    
+                    
+                        </div>
+                    </div>
+    
+                <template id="que">
+                    <article class="que-info">
+                        <p class="id"></p>
+                        <p class="order"></p>
+                    </article>
+                </template>
+                <div><h2>Orders getting served</h2>
+                    <div class="in-serve">
+        
+                        </div></div>
+                
+                <template id="serve">
+                        <article class="in-serve-info">
+                            <p class="serve-id"></p>
+                            <p class="serve-order"></p>
+                        </article>
+                    </template>
+                
+            </div>
+        </div>
+    </section>
     <section class="taps"></section>
     <section class="bartenders"></section>
-    <section class="beers">
+    <section class="beers hidden">
         <template id="beer">
             <article class="beer-info">
                 <div class="basic">
@@ -55,5 +86,4 @@
 </body>
 <script src="http://petlatkea.dk/2018/front/foobar.js"></script>
 <script src="js/index.js"></script>
-<script src="js/chart.js"></script>
 </html>
