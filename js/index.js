@@ -6,6 +6,7 @@ let peopleServed;
 let myLineChart;
 let i = 0; // counter for interval we set 
 let j = 0; // counter for lenght of data array
+let beersTotal = 0; //counter for number of beers 
 
 // Chart.js library, we learned to use it from youtube tutorials and their documentation
 let canvas = document.getElementById('myChart');
@@ -97,6 +98,17 @@ json.bartenders.forEach(element => {
     console.log(element.name +" is "+ element.status);
     
 });
+//snippet of code, copied from stackoverflow
+function countInArray(array, what) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+      if (array[i] === what) {
+          count++;
+      }
+  }
+  return count;
+}
+
 
 function getOrders(){
   //get data
@@ -134,6 +146,29 @@ json.serving.forEach(e=>{
 
 
 }
+function getTaps(){
+  //get data
+let data = FooBar.getData();
+//transfer data to JSON
+const json = JSON.parse(data);
+  //select the template from HTML to get the info about taps
+let template = document.querySelector("#tap").content;
+let parent = document.querySelector(".taps-grid");
+//run forEach method to loop through all the taps we have in object
+parent.innerHTML = "";
+json.taps.forEach(element => {
+  let clone = template.cloneNode(true);
+  clone.querySelector('.tap-name').textContent = element.beer;
+  clone.querySelector('.capacity').textContent = (element.level*0.01) + " litres";
+  if (element.inUse){
+    clone.querySelector('.in-use').textContent = "Tap is currently in use";
+  }
+
+
+  parent.appendChild(clone);
+});
+}
+getTaps();
 getOrders();
 
 }
@@ -165,9 +200,40 @@ json.beertypes.forEach(element => {
     parent.appendChild(clone);
 });
 }
+
+
 //navigation links
+let queSection = document.querySelector('.que');
+let tapsSection = document.querySelector('.taps');
+let beersSection = document.querySelector('.beers');
+let bartendersSection = document.querySelector('.bartenders');
+
+document.querySelector('#que-section').addEventListener("click",()=>{
+  queSection.classList.remove('hidden');
+  beersSection.classList.add('hidden');
+  tapsSection.classList.add('hidden');
+  bartendersSection.classList.add('hidden');
+})
+
+document.querySelector('#taps-section').addEventListener("click",()=>{
+  tapsSection.classList.remove('hidden');
+  beersSection.classList.add('hidden');
+  queSection.classList.add('hidden');
+  bartendersSection.classList.add('hidden');
+})
+
 document.querySelector('#beers-section').addEventListener("click",()=>{
-  document.querySelector('.beers').classList.toggle('hidden');
+  beersSection.classList.remove('hidden');
+  queSection.classList.add('hidden');
+  tapsSection.classList.add('hidden');
+  bartendersSection.classList.add('hidden');
+})
+
+document.querySelector('#bartenders-section').addEventListener("click",()=>{
+  bartendersSection.classList.remove('hidden');
+  queSection.classList.add('hidden');
+  tapsSection.classList.add('hidden');
+  beersSection.classList.add('hidden');
 })
 
 

@@ -12,10 +12,17 @@
 </head>
 <body>
     <div id="my-side-nav" class="sidenav">
+<<<<<<< HEAD
             <a href="#"><img src="images/icon_orders.png"> </a>
             <a href="#"><img src="images/icon_bartenders.png"></a>
             <a href="#"><img src="images/icon_taps.png"></a>
             <a href="#" id="beers-section"><img src="images/icon_beer.png"></a>
+=======
+            <a href="#" id="que-section">Que</a>
+            <a href="#" id="taps-section">Taps</a>
+            <a href="#" id="bartenders-section">Bartenders</a>
+            <a href="#" id="beers-section">Beers</a>
+>>>>>>> 1b3ffce8f4253c9c61f71accb013576489ca1e2a
         </div>
     <main>
     <section class="que">
@@ -53,8 +60,21 @@
             </div>
         </div>
     </section>
-    <section class="taps"></section>
-    <section class="bartenders"></section>
+    <section class="taps hidden">
+        <h2>Taps</h2>
+        <div class="taps-grid"></div>
+        <template id="tap">
+                <article class="tap-info">
+                    <h3 class="tap-name"></h3>
+                    <p class="capacity"></p>
+                    <img src="images/tap.svg" alt="">
+                    <p class="in-use"></p>
+                </article>
+            </template>
+    </section>
+    <section class="bartenders hidden">
+        <h2>Bartenders</h2>
+    </section>
     <section class="beers hidden">
         <template id="beer">
             <article class="beer-info">
