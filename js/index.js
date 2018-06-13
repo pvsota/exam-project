@@ -168,10 +168,29 @@ json.taps.forEach(element => {
   parent.appendChild(clone);
 });
 }
+function getBartenders(){
+  //get data
+let data = FooBar.getData();
+//transfer data to JSON
+const json = JSON.parse(data);
+  //select the template from HTML to get the info about taps
+let template = document.querySelector("#bartender").content;
+let parent = document.querySelector(".bartenders-grid");
+//run forEach method to loop through all the taps we have in object
+parent.innerHTML = "";
+json.bartenders.forEach(element => {
+  let clone = template.cloneNode(true);
+  clone.querySelector('.bartender-name').textContent = element.name;
+  clone.querySelector('.status').textContent = element.status;
+  clone.querySelector('.status-detail').textContent = element.statusDetail;
 
 
+  parent.appendChild(clone);
+});
+}
 getTaps();
 getOrders();
+getBartenders();
 
 }
 function getBeers(){
