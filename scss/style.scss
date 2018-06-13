@@ -2,9 +2,11 @@ $main-color:  #24282B;
 $blue: #33DBC6;
 $purple: #985EFF;
 $white:  #e9e9e9;
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 *{
     background-color: $main-color;
     color: $white;
+    font-family: 'Raleway', sans-serif;
     
 }
 body {
