@@ -7,6 +7,7 @@ let myLineChart;
 let i = 0; // counter for interval we set 
 let j = 0; // counter for lenght of data array
 let beersTotal = 0; //counter for number of beers 
+let orderTotal = 0;
 
 // Chart.js library, we learned to use it from youtube tutorials and their documentation
 let canvas = document.getElementById('myChart');
@@ -123,11 +124,20 @@ let serveTemplate = document.querySelector("#serve").content;
 let serveParent = document.querySelector(".in-serve");
 
 parent.innerHTML = '';
+
+// let lenghtOfQue = json.queue[json.queue.length];
+// let lenghtOfServe = json.serving[json.serving.length];
+// if (lenghtOfQue > lenghtOfServe){
+//   document.querySelector('#total-orders').textContent = lenghtOfQue;
+// } else{
+//   document.querySelector('#total-orders').textContent = lenghtOfServe;
+// }
 json.queue.forEach(e =>{
   let clone = template.cloneNode(true);
   clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
   e.order.forEach(i =>{
     clone.querySelector('.order').textContent += i + " ";
+
   })
 
   parent.appendChild(clone);
