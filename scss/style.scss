@@ -93,6 +93,9 @@ main{
     .each-bartender{
         display:grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        svg{
+            width:50%;
+        }
     }
     .status{
         text-transform: lowercase;
