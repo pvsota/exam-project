@@ -262,6 +262,8 @@ json.bartenders.forEach(element => {
     bartenderBowtie.style.fill = "#79cc6d";
     bartenderHead.style.fill = "#79cc6d";
     bartenderBody.style.fill = "#79cc6d";
+    clone.querySelector('.status').style.color = "#79cc6d";
+
 
   }
 

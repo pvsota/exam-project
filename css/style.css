@@ -76,7 +76,8 @@ main {
     grid-template-columns: repeat(4, 1fr); }
   .bartender-info .each-bartender {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; }
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center; }
     .bartender-info .each-bartender svg {
       width: 40%; }
   .bartender-info .status {
