@@ -76,7 +76,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; }
     .bartender-info .each-bartender svg {
-      width: 50%; }
+      width: 40%; }
   .bartender-info .status {
     text-transform: lowercase; }
 

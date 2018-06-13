@@ -216,9 +216,15 @@ json.bartenders.forEach(element => {
   clone.querySelector('.bartender-name').textContent = element.name;
   clone.querySelector('.status').textContent = element.status;
   clone.querySelector('.status-detail').textContent = element.statusDetail;
-  let bartenderStatus = clone.querySelector('.st0');
+  let bartenderBowtie = clone.querySelector('#bowtie');
+  let bartenderHead = clone.querySelector('#head');
+  let bartenderBody = clone.querySelector('#body');
+
   if (element.status === "WORKING"){
-    bartenderStatus.style.fill = "#79cc6d";
+    bartenderBowtie.style.fill = "#79cc6d";
+    bartenderHead.style.fill = "#79cc6d";
+    bartenderBody.style.fill = "#79cc6d";
+
   }
 
 
