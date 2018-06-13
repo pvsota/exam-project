@@ -168,8 +168,29 @@ json.taps.forEach(element => {
   parent.appendChild(clone);
 });
 }
+function getBartenders(){
+  //get data
+let data = FooBar.getData();
+//transfer data to JSON
+const json = JSON.parse(data);
+  //select the template from HTML to get the info about taps
+let template = document.querySelector("#bartender").content;
+let parent = document.querySelector(".bartenders-grid");
+//run forEach method to loop through all the taps we have in object
+parent.innerHTML = "";
+json.bartenders.forEach(element => {
+  let clone = template.cloneNode(true);
+  clone.querySelector('.bartender-name').textContent = element.name;
+  clone.querySelector('.status').textContent = element.status;
+  clone.querySelector('.status-detail').textContent = element.statusDetail;
+
+
+  parent.appendChild(clone);
+});
+}
 getTaps();
 getOrders();
+getBartenders();
 
 }
 function getBeers(){
@@ -186,6 +207,7 @@ json.beertypes.forEach(element => {
     clone.querySelector('.name').textContent = element.name;
     clone.querySelector('.category').textContent = element.category;
     clone.querySelector('.alc').textContent = element.alc + "%";
+    clone.querySelector('.beer-info').dataset.alc = element.alc;
     clone.querySelector('.appearance').textContent = element.description.appearance;
     clone.querySelector('.aroma').textContent = element.description.aroma;
     clone.querySelector('.flavour').textContent = element.description.flavour;
@@ -196,6 +218,41 @@ json.beertypes.forEach(element => {
     clone.querySelector('button').addEventListener("click",()=>{
         description.classList.toggle('hidden');
     })
+    //sorting beer 
+document.querySelector("#weakest").addEventListener("click", function () {
+
+  let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
+  console.log (ps);
+  let parent = document.querySelector('.beers')
+  ps.sort(function (a, b) {
+    console.log(a);
+      return a.dataset.alc - b.dataset.alc;
+  })
+  ps.forEach(p => {
+      //clean container
+      parent.removeChild(p)
+      parent.appendChild(p)
+  })
+
+
+})
+document.querySelector("#strongest").addEventListener("click", function () {
+
+  let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
+  console.log (ps);
+  let parent = document.querySelector('.beers')
+  ps.sort(function (a, b) {
+    console.log(a);
+      return b.dataset.alc - a.dataset.alc ;
+  })
+  ps.forEach(p => {
+      //clean container
+      parent.removeChild(p)
+      parent.appendChild(p)
+  })
+
+
+})
 
     parent.appendChild(clone);
 });
@@ -205,7 +262,7 @@ json.beertypes.forEach(element => {
 //navigation links
 let queSection = document.querySelector('.que');
 let tapsSection = document.querySelector('.taps');
-let beersSection = document.querySelector('.beers');
+let beersSection = document.querySelector('.beers-sec');
 let bartendersSection = document.querySelector('.bartenders');
 
 document.querySelector('#que-section').addEventListener("click",()=>{
