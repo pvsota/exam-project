@@ -258,8 +258,10 @@ json.beertypes.forEach(element => {
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
     let description = clone.querySelector('.description');
-    clone.querySelector('button').addEventListener("click",()=>{
+    clone.querySelector('button').addEventListener("click",(e)=>{
         description.classList.toggle('hidden');
+        //console.log(e.target);
+        e.target.parentElement.parentElement.parentElement.classList.toggle('more');
     })
     //sorting beer 
 document.querySelector("#weakest").addEventListener("click", function () {
