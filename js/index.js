@@ -343,12 +343,14 @@ let queSection = document.querySelector('.que');
 let tapsSection = document.querySelector('.taps');
 let beersSection = document.querySelector('.beers-sec');
 let bartendersSection = document.querySelector('.bartenders');
+let storageSection = document.querySelector('.storage');
 
 document.querySelector('#que-section').addEventListener("click",()=>{
   queSection.classList.remove('hidden');
   beersSection.classList.add('hidden');
   tapsSection.classList.add('hidden');
   bartendersSection.classList.add('hidden');
+  storageSection.classList.add('hidden');
 })
 
 document.querySelector('#taps-section').addEventListener("click",()=>{
@@ -356,6 +358,8 @@ document.querySelector('#taps-section').addEventListener("click",()=>{
   beersSection.classList.add('hidden');
   queSection.classList.add('hidden');
   bartendersSection.classList.add('hidden');
+  storageSection.classList.add('hidden');
+
 })
 
 document.querySelector('#beers-section').addEventListener("click",()=>{
@@ -363,6 +367,8 @@ document.querySelector('#beers-section').addEventListener("click",()=>{
   queSection.classList.add('hidden');
   tapsSection.classList.add('hidden');
   bartendersSection.classList.add('hidden');
+  storageSection.classList.add('hidden');
+
 })
 
 document.querySelector('#bartenders-section').addEventListener("click",()=>{
@@ -370,6 +376,14 @@ document.querySelector('#bartenders-section').addEventListener("click",()=>{
   queSection.classList.add('hidden');
   tapsSection.classList.add('hidden');
   beersSection.classList.add('hidden');
+  storageSection.classList.add('hidden');
+})
+document.querySelector('#storage-section').addEventListener("click",()=>{
+  storageSection.classList.remove('hidden');
+  queSection.classList.add('hidden');
+  tapsSection.classList.add('hidden');
+  beersSection.classList.add('hidden');
+  bartendersSection.classList.add('hidden');
 })
 
 
