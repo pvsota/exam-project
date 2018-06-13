@@ -78,6 +78,44 @@ function addSecondData(){
   myLineChart.update();
 }
 
+//doughnut chart from chart js
+var ctx = document.getElementById("myDoughnut");
+
+var dataD = {
+    labels: [
+        "Red",
+        "Blue",
+        "Yellow"
+    ],
+    datasets: [
+        {
+            data: [300, 50, 100],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ],
+            hoverBackgroundColor: [
+                "#FF4394",
+                "#36A2EB",
+                "#FFCE56"
+            ]
+						
+						
+        }]
+};
+
+var optionsD = { 
+	cutoutPercentage:40,
+};
+
+
+var myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: dataD,
+    options: optionsD
+});
+
 function loadJson(){
 //get data
 let data = FooBar.getData();

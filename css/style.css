@@ -84,6 +84,8 @@ main {
   padding-top: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; }
+  .beers .beer-info {
+    padding: 1.5em; }
   .beers .basic {
     display: grid;
     grid-template-columns: 1fr 1fr; }
