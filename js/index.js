@@ -168,6 +168,8 @@ json.taps.forEach(element => {
   parent.appendChild(clone);
 });
 }
+
+
 getTaps();
 getOrders();
 
@@ -186,6 +188,7 @@ json.beertypes.forEach(element => {
     clone.querySelector('.name').textContent = element.name;
     clone.querySelector('.category').textContent = element.category;
     clone.querySelector('.alc').textContent = element.alc + "%";
+    clone.querySelector('.beer-info').dataset.alc = element.alc;
     clone.querySelector('.appearance').textContent = element.description.appearance;
     clone.querySelector('.aroma').textContent = element.description.aroma;
     clone.querySelector('.flavour').textContent = element.description.flavour;
@@ -196,6 +199,41 @@ json.beertypes.forEach(element => {
     clone.querySelector('button').addEventListener("click",()=>{
         description.classList.toggle('hidden');
     })
+    //sorting beer 
+document.querySelector("#weakest").addEventListener("click", function () {
+
+  let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
+  console.log (ps);
+  let parent = document.querySelector('.beers')
+  ps.sort(function (a, b) {
+    console.log(a);
+      return a.dataset.alc - b.dataset.alc;
+  })
+  ps.forEach(p => {
+      //clean container
+      parent.removeChild(p)
+      parent.appendChild(p)
+  })
+
+
+})
+document.querySelector("#strongest").addEventListener("click", function () {
+
+  let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
+  console.log (ps);
+  let parent = document.querySelector('.beers')
+  ps.sort(function (a, b) {
+    console.log(a);
+      return b.dataset.alc - a.dataset.alc ;
+  })
+  ps.forEach(p => {
+      //clean container
+      parent.removeChild(p)
+      parent.appendChild(p)
+  })
+
+
+})
 
     parent.appendChild(clone);
 });
@@ -205,7 +243,7 @@ json.beertypes.forEach(element => {
 //navigation links
 let queSection = document.querySelector('.que');
 let tapsSection = document.querySelector('.taps');
-let beersSection = document.querySelector('.beers');
+let beersSection = document.querySelector('.beers-sec');
 let bartendersSection = document.querySelector('.bartenders');
 
 document.querySelector('#que-section').addEventListener("click",()=>{
