@@ -121,14 +121,18 @@ main {
   display: block; }
 
 .dropdown:hover .dropbtn {
-  background-color: #000; }
+  background-color: #33DBC6; }
 
 .taps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); }
+  grid-template-columns: repeat(4, 1fr); }
 
-.tap-info img {
-  width: 20%; }
+.tap-info {
+  text-align: center; }
+  .tap-info svg {
+    width: 70%; }
+    .tap-info svg .st0 {
+      fill: #24282B; }
 
 .hidden {
   display: none; }

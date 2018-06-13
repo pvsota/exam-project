@@ -145,16 +145,20 @@ main{
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #000;}
+.dropdown:hover .dropbtn {background-color: $blue;}
 
 .taps-grid{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
    
 }
 .tap-info{
-    img{
-        width: 20%;
+    text-align: center;
+    svg{
+        width: 70%;
+        .st0{
+            fill: $main-color;
+        }
     }
 }
 .hidden {

@@ -168,10 +168,28 @@ let parent = document.querySelector(".taps-grid");
 parent.innerHTML = "";
 json.taps.forEach(element => {
   let clone = template.cloneNode(true);
+  let status = clone.querySelector('.st0');
+  let full = clone.querySelector('#full');
+  let halfFull = clone.querySelector('#half-full');
+  let half = clone.querySelector('#half');
+  
   clone.querySelector('.tap-name').textContent = element.beer;
   clone.querySelector('.capacity').textContent = (element.level*0.01) + " litres";
+  if (element.level<1875){
+    full.style.display = "none";
+  }
+  if (element.level<1250){
+    halfFull.style.display = "none";
+  }
+  if (element.level<625){
+    half.style.display = "none";
+    status.style.fill = "red";
+  }
   if (element.inUse){
     clone.querySelector('.in-use').textContent = "Tap is currently in use";
+    status.style.fill = "#79CC6D";
+  } else {
+    clone.querySelector('.in-use').textContent = "Tap is not in use";
   }
 
 
