@@ -172,6 +172,7 @@ json.taps.forEach(element => {
   let full = clone.querySelector('#full');
   let halfFull = clone.querySelector('#half-full');
   let half = clone.querySelector('#half');
+  let empty = clone.querySelector('#almost-empty')
   
   clone.querySelector('.tap-name').textContent = element.beer;
   clone.querySelector('.capacity').textContent = (element.level*0.01) + " litres";
@@ -183,6 +184,10 @@ json.taps.forEach(element => {
   }
   if (element.level<625){
     half.style.display = "none";
+    status.style.fill = "red";
+  }
+  if (element.level<60){
+    empty.style.display = "none";
     status.style.fill = "red";
   }
   if (element.inUse){
@@ -211,8 +216,8 @@ json.bartenders.forEach(element => {
   clone.querySelector('.bartender-name').textContent = element.name;
   clone.querySelector('.status').textContent = element.status;
   clone.querySelector('.status-detail').textContent = element.statusDetail;
-  let bartenderStatus = clone.querySelector(".st0");
-  if (element.status=== "WORKING"){
+  let bartenderStatus = clone.querySelector('.st0');
+  if (element.status === "WORKING"){
     bartenderStatus.style.fill = "#79cc6d";
   }
 
