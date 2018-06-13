@@ -266,6 +266,24 @@ json.bartenders.forEach(element => {
 
 
   }
+  if(element.statusDetail === "pourBeer"){
+    clone.querySelector('.status-detail').style.color = "#F4EB71"
+
+  }
+  if(element.statusDetail === "reserveTap"){
+    clone.querySelector('.status-detail').style.color = "#F8BF61"
+
+  }
+  if(element.statusDetail === "receivePayment"){
+    clone.querySelector('.status-detail').style.color = "#985EFF"
+
+  }
+  if(element.statusDetail === "startServing"){
+    clone.querySelector('.status-detail').style.color = "#4BC0BF"
+
+  }
+  
+
 
 
   parent.appendChild(clone);
