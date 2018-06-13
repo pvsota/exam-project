@@ -92,6 +92,8 @@ main {
   .beers .basic {
     display: grid;
     grid-template-columns: 1fr 1fr; }
+  .beers .description {
+    padding-left: 3em; }
   .beers img {
     display: block;
     margin-left: auto;

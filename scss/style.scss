@@ -115,6 +115,9 @@ main{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+    .description{
+        padding-left: 3em;
+    }
     img{
         display: block;
         margin-left: auto;
