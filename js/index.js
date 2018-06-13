@@ -203,10 +203,8 @@ json.beertypes.forEach(element => {
 document.querySelector("#weakest").addEventListener("click", function () {
 
   let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
-  console.log (ps);
   let parent = document.querySelector('.beers')
   ps.sort(function (a, b) {
-    console.log(a);
       return a.dataset.alc - b.dataset.alc;
   })
   ps.forEach(p => {
@@ -220,11 +218,9 @@ document.querySelector("#weakest").addEventListener("click", function () {
 document.querySelector("#strongest").addEventListener("click", function () {
 
   let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
-  console.log (ps);
   let parent = document.querySelector('.beers')
   ps.sort(function (a, b) {
-    console.log(a);
-      return b.dataset.alc - a.dataset.alc ;
+      return b.dataset.alc - a.dataset.alc;
   })
   ps.forEach(p => {
       //clean container
