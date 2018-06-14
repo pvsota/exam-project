@@ -146,13 +146,14 @@ main{
 .beers {
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
     .beer-info{
         padding: 1.5em;
     }
     .basic{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
     }
     .description{
         padding-left: 3em;

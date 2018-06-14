@@ -432,18 +432,9 @@ function getBeers() {
     clone.querySelector('.category').textContent = element.category;
     clone.querySelector('.alc').textContent = element.alc + "%";
     clone.querySelector('.beer-info').dataset.alc = element.alc;
-    clone.querySelector('.appearance').textContent = "APPEARANCE: " + element.description.appearance;
-    clone.querySelector('.aroma').textContent = "AROMA: " + element.description.aroma;
-    clone.querySelector('.flavour').textContent = "FLAVOR: " + element.description.flavor;
-    clone.querySelector('.mouthfeel').textContent = "MOUTHFEEL: " + element.description.mouthfeel;
     clone.querySelector('.overall-impression').textContent = "OVERALL IMPRESSION: " + element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
-    let description = clone.querySelector('.description');
-    clone.querySelector('button').addEventListener("click", (e) => {
-      description.classList.toggle('hidden');
-      //console.log(e.target);
-      e.target.parentElement.parentElement.parentElement.classList.toggle('more');
-    })
+    
     //sorting beer 
     document.querySelector("#weakest").addEventListener("click", function () {
 
