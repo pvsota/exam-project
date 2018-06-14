@@ -110,11 +110,17 @@ main{
         display: flex;
         align-content: space-between;
     }
+    .id, .serve-id{
+        opacity: 0;
+        font-weight: 200;
+        padding-left: 2em;
+    }
     .serve-order,
     .order{
+        opacity: 0;
         color: darken($white, 25%);
         font-weight: 200;
-        padding-left: .5em;
+        padding-left: 1em;
     }
 }
 .bartender-info {
@@ -145,7 +151,7 @@ main{
     }
 }
 .beers {
-    padding: 3em;
+    padding: 0 3em 3em;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     h3{
@@ -194,7 +200,7 @@ main{
 }
 .filter{
     display: flex;
-    padding: 1em;
+    padding: 3em 3em 0 ;
     a{
         padding-left: 1em;
         color: $white;

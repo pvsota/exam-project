@@ -83,11 +83,16 @@ main {
   .orders .in-serve-info {
     display: flex;
     align-content: space-between; }
+  .orders .id, .orders .serve-id {
+    opacity: 0;
+    font-weight: 200;
+    padding-left: 2em; }
   .orders .serve-order,
   .orders .order {
+    opacity: 0;
     color: darkgray;
     font-weight: 200;
-    padding-left: .5em; }
+    padding-left: 1em; }
 
 .bartender-info {
   display: grid;
@@ -111,7 +116,7 @@ main {
     opacity: 0; }
 
 .beers {
-  padding: 3em;
+  padding: 0 3em 3em;
   display: grid;
   grid-template-columns: repeat(2, 1fr); }
   .beers h3 {
@@ -148,7 +153,7 @@ main {
 
 .filter {
   display: flex;
-  padding: 1em; }
+  padding: 3em 3em 0; }
   .filter a {
     padding-left: 1em;
     color: #e9e9e9;
