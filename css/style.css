@@ -122,7 +122,7 @@ main {
   .beers .beer-info {
     margin: 1em;
     border: darkgray solid 0.5px;
-    border-radius: 20px; }
+    border-radius: 50px; }
   .beers .basic {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
