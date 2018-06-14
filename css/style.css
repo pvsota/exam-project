@@ -128,6 +128,9 @@ main {
     margin-right: auto;
     width: 50%;
     text-align: center; }
+  .beers .overall-impression {
+    font-size: 0.9em;
+    color: darkgray; }
 
 .dropbtn {
   background-color: #24282B;

@@ -403,6 +403,16 @@ function loadJson() {
         bartenderBody.style.fill = "#4BC0BF";
 
       }
+      if (element.statusDetail === "releaseTap") {
+        clone.querySelector('.status-detail').classList.add("fadeIn");
+        clone.querySelector('.status-detail').style.color = "#CE884A";
+        clone.querySelector('.status-detail').textContent = "Releasing the tap";
+        clone.querySelector('.status-detail').style.color = "#CE884A";
+        bartenderBowtie.style.fill = "#CE884A";
+        bartenderHead.style.fill = "#CE884A";
+        bartenderBody.style.fill = "#CE884A";
+
+      }
 
 
 
