@@ -145,7 +145,7 @@ main{
     }
 }
 .beers {
-    padding: 3em;
+    padding: 0 3em 3em;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     h3{
@@ -194,7 +194,7 @@ main{
 }
 .filter{
     display: flex;
-    padding: 1em;
+    padding: 3em 3em 0 ;
     a{
         padding-left: 1em;
         color: $white;
