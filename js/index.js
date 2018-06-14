@@ -7,7 +7,7 @@ let myLineChart;
 let i = 0; // counter for interval we set 
 let j = 0; // counter for lenght of data array
 let beersTotal = 0; //counter for number of beers 
-let orderTotal = 0;
+let ordersTotal = 0;
 let storageData = ["Peter"];
 let storageDatasets = [];
 
@@ -93,52 +93,52 @@ function addSecondData() {
 //bar chart from chart js
 let canvasD = document.getElementById('myDoughnut');
 let dataD = {
-    labels: storageDatasets,
-    datasets: [
-        {
-            label: "Storage of beers",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: storageData,
-        }
-    ]
+  labels: storageDatasets,
+  datasets: [{
+    label: "Storage of beers",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: storageData,
+  }]
 };
 let optionD = {
-    animation: false,
-    scales: {
-           
-        xAxes: [{ticks: {
-            autoSkip: false,
-            beginAtZero: true,
-            fontColor: '#fff',
-            fontSize: 18
-        },
-            display: true,
-            responsive: true,
-           
-        }],
-        yAxes: [{ ticks: {
-            beginAtZero: true,
-            fontColor: '#fff',
-            fontSize: 18,
-           // mirror: true
-            
-        },
-            display: true,
-            responsive: true,
+  animation: false,
+  scales: {
 
-        }]
-    }
+    xAxes: [{
+      ticks: {
+        autoSkip: false,
+        beginAtZero: true,
+        fontColor: '#fff',
+        fontSize: 18
+      },
+      display: true,
+      responsive: true,
+
+    }],
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        fontColor: '#fff',
+        fontSize: 18,
+        // mirror: true
+
+      },
+      display: true,
+      responsive: true,
+
+    }]
+  }
 
 };
 
 
-var myBarChart = Chart.Bar(canvasD,{
-	data:dataD,
-  options:optionD
+var myBarChart = Chart.Bar(canvasD, {
+  data: dataD,
+  options: optionD
 });
 
 function loadJson() {
@@ -158,76 +158,77 @@ function loadJson() {
   addData();
   addSecondData();
 
-  function getStorage(){
+  //get data of storage 
+  function getStorage() {
     storageData = [];
     storageDatasets = [];
     //get data
     let data = FooBar.getData();
     //transfer data to JSON
     const json = JSON.parse(data);
-    json.storage.forEach(e =>{
+    json.storage.forEach(e => {
       storageDatasets.push(e.name);
       storageData.push(e.amount);
 
       //bar chart from chart js
 
 
-let canvasD = document.getElementById('myDoughnut');
-let dataD = {
-    labels: storageDatasets,
-    datasets: [
-        {
-            label: "Storage of beers",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: storageData,
-        }
-    ]
-};
-let optionD = {
-    animation: false,
-    scales: {
-           
-        xAxes: [{ticks: {
-            autoSkip: false,
-            beginAtZero: true,
-            fontColor: '#fff',
-            fontSize: 18
-        },
-            display: true,
-            responsive: true,
-           
-        }],
-        yAxes: [{ ticks: {
-            beginAtZero: true,
-            fontColor: '#fff',
-            fontSize: 18,
-           // mirror: true
-            
-        },
-            display: true,
-            responsive: true,
-
+      let canvasD = document.getElementById('myDoughnut');
+      let dataD = {
+        labels: storageDatasets,
+        datasets: [{
+          label: "Storage of beers",
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          borderWidth: 2,
+          hoverBackgroundColor: "rgba(255,99,132,0.4)",
+          hoverBorderColor: "rgba(255,99,132,1)",
+          data: storageData,
         }]
-    }
+      };
+      let optionD = {
+        animation: false,
+        scales: {
 
-};
+          xAxes: [{
+            ticks: {
+              autoSkip: false,
+              beginAtZero: true,
+              fontColor: '#fff',
+              fontSize: 18
+            },
+            display: true,
+            responsive: true,
+
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              fontColor: '#fff',
+              fontSize: 18,
+              // mirror: true
+
+            },
+            display: true,
+            responsive: true,
+
+          }]
+        }
+
+      };
 
 
-var myBarChart = Chart.Bar(canvasD,{
-	data:dataD,
-  options:optionD
-});
+      var myBarChart = Chart.Bar(canvasD, {
+        data: dataD,
+        options: optionD
+      });
 
     })
 
   }
 
 
-
+  // get data of the orders in que and getting served
   function getOrders() {
     //get data
     let data = FooBar.getData();
@@ -245,21 +246,21 @@ var myBarChart = Chart.Bar(canvasD,{
       let clone = template.cloneNode(true);
       clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
 
-      
+
 
       // Show number of beers in order "X"+"Name"
       const orderinfo = {};
 
       // build orderinfo from e.order.forEach
-      e.order.forEach(beer =>{
-        const count = countInArray(e.order,beer);
-        orderinfo[beer]=count;
+      e.order.forEach(beer => {
+        const count = countInArray(e.order, beer); // how many times does the beer appears in order
+        orderinfo[beer] = count;
       });
 
       for (name in orderinfo) {
         clone.querySelector('.order').textContent += "  " + orderinfo[name] + " " + name + " | ";
       }
-      
+
 
 
 
@@ -267,17 +268,20 @@ var myBarChart = Chart.Bar(canvasD,{
       parent.appendChild(clone);
     })
     serveParent.innerHTML = '';
+    ordersTotal = json.queue[json.queue.length - 1].id + 1;
+    document.querySelector("#people-total").textContent = ordersTotal;
     json.serving.forEach(e => {
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
+
       const orderinfo = {};
       e.order.forEach(beer => {
-        const count = countInArray(e.order,beer);
-        orderinfo[beer]=count;
+        const count = countInArray(e.order, beer);
+        orderinfo[beer] = count;
       })
-      for (name in orderinfo){
-      clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " | ";
-    }
+      for (name in orderinfo) {
+        clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " | ";
+      }
       serveParent.appendChild(clone);
 
     })
@@ -382,7 +386,10 @@ var myBarChart = Chart.Bar(canvasD,{
 
       }
       if (element.statusDetail === "startServing") {
-        clone.querySelector('.status-detail').style.color = "#4BC0BF"
+        clone.querySelector('.status-detail').style.color = "#4BC0BF";
+        bartenderBowtie.style.fill = "#4BC0BF";
+        bartenderHead.style.fill = "#4BC0BF";
+        bartenderBody.style.fill = "#4BC0BF";
 
       }
 
@@ -468,7 +475,7 @@ const hours = now.getHours();
 const minutes = now.getMinutes();
 // show 0's
 let min;
-if (minutes < 10){
+if (minutes < 10) {
   min = minutes.toString();
   min = "0" + min;
 } else {
