@@ -9,7 +9,7 @@ let j = 0; // counter for lenght of data array
 let beersTotal = 0; //counter for number of beers 
 let lastIdCounted = 0;
 let ordersTotal = 0;
-let storageData = ["Peter"];
+let storageData = [];
 let storageDatasets = [];
 
 //snippet of code, copied from stackoverflow
