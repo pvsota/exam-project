@@ -53,6 +53,12 @@ body {
         transition-timing-function: ease-in-out;
         -webkit-transition: 250ms;
         -webkit-transition-timing-function: ease-in-out;
+        .st0{
+            transition: 250ms;
+            transition-timing-function: ease-in-out;
+            -webkit-transition: 250ms;
+            -webkit-transition-timing-function: ease-in-out;
+        }
     }
     svg:hover{
         fill: $blue;
@@ -89,7 +95,9 @@ main{
     margin: 25px;
     padding: 50px;
     h2{
+        font-size: 1.2em;
         text-align: center;
+        padding-bottom: 25px;
 
     }
     .grid-orders{
