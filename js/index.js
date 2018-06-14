@@ -448,10 +448,20 @@ function getBeers() {
     let clone = template.cloneNode(true);
     clone.querySelector('.name').textContent = element.name;
     clone.querySelector('.category').textContent = element.category;
-    clone.querySelector('.alc').textContent = element.alc + "%";
+    clone.querySelector('.alc').textContent = "Alc | " + element.alc + "%";
     clone.querySelector('.beer-info').dataset.alc = element.alc;
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
+
+    if (element.alc < 6){
+      clone.querySelector('.alc').style.color = "#F4EB71";
+    } else if (element.alc < 8){
+      clone.querySelector('.alc').style.color = "#F8BF61";
+    } else if (element.alc < 9){
+      clone.querySelector('.alc').style.color = "#CE884A";
+    } else if (element.alc <= 10){
+      clone.querySelector('.alc').style.color = "#CC614C";
+    }
     
     //sorting beer 
     document.querySelector("#weakest").addEventListener("click", function () {
