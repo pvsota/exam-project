@@ -214,7 +214,12 @@ main{
         color: $blue;
     }
 }
-
+#full,
+#half-full,
+#half,
+#almost-empty{
+    opacity: 1;
+}
 
 
 .taps-grid{
