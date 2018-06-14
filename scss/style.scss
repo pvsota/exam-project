@@ -6,6 +6,7 @@ $red: #CC614C;
 $green: #79CC6D;
 $yellow: #F4EB71;
 $orange: #F8BF61;
+$brown: #CE884A;
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 *{
     background-color: $main-color;
@@ -164,6 +165,12 @@ main{
         margin-right: auto;
         width: 50%;
         text-align: center;
+    }
+    .overall-impression{
+
+        font-size: 0.9em;
+        color: darken($white, 25%);
+
     }
 }
 .dropbtn {
