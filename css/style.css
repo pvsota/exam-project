@@ -159,6 +159,9 @@ main {
     .tap-info svg .st0 {
       fill: #24282B; }
 
+#myDoughnut {
+  pointer-events: none; }
+
 .hidden {
   display: none; }
 

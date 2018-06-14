@@ -8,7 +8,7 @@ let i = 0; // counter for interval we set
 let j = 0; // counter for lenght of data array
 let beersTotal = 0; //counter for number of beers 
 let orderTotal = 0;
-let storageData = [];
+let storageData = ["Peter"];
 let storageDatasets = [];
 
 // Chart.js library, we learned to use it from youtube tutorials and their documentation
@@ -150,17 +150,69 @@ function loadJson() {
   addSecondData();
 
   function getStorage(){
+    storageData = [];
+    storageDatasets = [];
     //get data
     let data = FooBar.getData();
     //transfer data to JSON
     const json = JSON.parse(data);
-
-    // storageData = [];
-    // storageDatasets = [];
-    
     json.storage.forEach(e =>{
       storageDatasets.push(e.name);
-      storageData.push(e.amount)
+      storageData.push(e.amount);
+
+      //bar chart from chart js
+
+
+let canvasD = document.getElementById('myDoughnut');
+let dataD = {
+    labels: storageDatasets,
+    datasets: [
+        {
+            label: "Storage of beers",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: storageData,
+        }
+    ]
+};
+let optionD = {
+    animation: false,
+    scales: {
+           
+        xAxes: [{ticks: {
+            autoSkip: false,
+            beginAtZero: true,
+            fontColor: '#fff',
+            fontSize: 18
+        },
+            display: true,
+            responsive: true,
+           
+        }],
+        yAxes: [{ ticks: {
+            beginAtZero: true,
+            fontColor: '#fff',
+            fontSize: 18,
+           // mirror: true
+            
+        },
+            display: true,
+            responsive: true,
+
+        }]
+    }
+
+};
+
+
+var myBarChart = Chart.Bar(canvasD,{
+	data:dataD,
+  options:optionD
+});
+
     })
 
   }
