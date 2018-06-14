@@ -284,7 +284,7 @@ var myBarChart = Chart.Bar(canvasD,{
         orderinfo[beer]=count;
       })
       for (name in orderinfo){
-      clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " / ";
+      clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " | ";
     }
       serveParent.appendChild(clone);
 
