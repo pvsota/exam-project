@@ -148,6 +148,13 @@ main{
     padding-top: 1em;
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    h3{
+        font-size: 1.2em;
+    }
+    h5{
+        font-size: 0.9em;
+        font-weight: 200; 
+    }
     .beer-info{
         padding: 1.5em;
     }

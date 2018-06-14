@@ -114,6 +114,11 @@ main {
   padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(2, 1fr); }
+  .beers h3 {
+    font-size: 1.2em; }
+  .beers h5 {
+    font-size: 0.9em;
+    font-weight: 200; }
   .beers .beer-info {
     padding: 1.5em; }
   .beers .basic {
