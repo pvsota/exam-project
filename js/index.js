@@ -80,8 +80,6 @@ function addSecondData() {
 }
 
 //bar chart from chart js
-
-
 let canvasD = document.getElementById('myDoughnut');
 let dataD = {
     labels: storageDatasets,
@@ -203,26 +201,28 @@ function loadJson() {
         return count;
       }
 
+      // Show number of beers in order "X" "Name"
       const orderinfo = {};
 
       // build orderinfo from e.order.forEach
+      e.order.forEach(beer =>{
+        const count = countInArray(e.order,beer);
+        orderinfo[beer]=count;
+      });
 
-
-      // for (name in orderinfo) {
-      //   clone.querySelector('.order').textContent += orderinfo[name] + name;
-      // }
+      for (name in orderinfo) {
+        clone.querySelector('.order').textContent += orderinfo[name] + name;
+      }
       
 
-      e.order.forEach(i =>{
         // let array = []; 
         // array.push(i);
         // console.log(array);
         // const count = countInArray(array,i);
         // console.log(count)
 
-        clone.querySelector('.order').textContent += i + " ";
+     //   clone.querySelector('.order').textContent += i + " ";
 
-      })
 
       parent.appendChild(clone);
     })
@@ -237,8 +237,6 @@ function loadJson() {
       serveParent.appendChild(clone);
 
     })
-
-
   }
 
   function getTaps() {
@@ -281,7 +279,6 @@ function loadJson() {
       } else {
         clone.querySelector('.in-use').textContent = "Tap is not in use";
       }
-
 
       parent.appendChild(clone);
     });
@@ -425,6 +422,7 @@ function getBeers() {
 const now = new Date();
 const hours = now.getHours();
 const minutes = now.getMinutes();
+// show 0's
 let min;
 if (minutes < 10){
   min = minutes.toString();
