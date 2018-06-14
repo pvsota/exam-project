@@ -163,10 +163,6 @@ function loadJson() {
   function getStorage() {
     storageData = [];
     storageDatasets = [];
-    //get data
-    let data = FooBar.getData();
-    //transfer data to JSON
-    const json = JSON.parse(data);
     json.storage.forEach(e => {
       storageDatasets.push(e.name);
       storageData.push(e.amount);
@@ -231,10 +227,6 @@ function loadJson() {
 
   // get data of the orders in que and getting served
   function getOrders() {
-    //get data
-    let data = FooBar.getData();
-    //transfer data to JSON
-    const json = JSON.parse(data);
     //select the template from HTML to get the info about orders
     let template = document.querySelector("#que").content;
     let parent = document.querySelector(".in-que");
@@ -242,15 +234,16 @@ function loadJson() {
     let serveTemplate = document.querySelector("#serve").content;
     let serveParent = document.querySelector(".in-serve");
 
+    //clearing the parent element to prevent looping
     parent.innerHTML = '';
+
     json.queue.forEach(e => {
       let clone = template.cloneNode(true);
       clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
 
+      //appealing fade in animation
       clone.querySelector('.id').classList.add("fadeIn");
       clone.querySelector('.order').classList.add("fadeIn");
-
-
 
       // Show number of beers in order "X"+"Name"
       const orderinfo = {};
@@ -260,22 +253,23 @@ function loadJson() {
         const count = countInArray(e.order, beer); // how many times does the beer appears in order
         orderinfo[beer] = count;
       });
-
+      // go into orderinfo object and change the text content with a count of exact beer
       for (name in orderinfo) {
         clone.querySelector('.order').textContent += "  " + orderinfo[name] + " " + name + " | ";
       }
-
-
-
-
-
+      //appending the child
       parent.appendChild(clone);
     })
+    //clearing the parent element to prevent looping
     serveParent.innerHTML = '';
+
+    //getting the amount of total orders
     ordersTotal = json.queue[json.queue.length - 1].id + 1;
     document.querySelector("#people-total").textContent = ordersTotal;
+
+
     json.serving.forEach(e => {
-      //counting total amount of beers sold
+      //counting total amount of beers which have been sold
       if (e.id > lastIdCounted) {
         beersTotal += e.order.length;
         lastIdCounted = e.id;
@@ -284,32 +278,39 @@ function loadJson() {
 
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
+      //appealing fade in animation
       clone.querySelector('.serve-id').classList.add("fadeIn");
       clone.querySelector('.serve-order').classList.add("fadeIn");
-
+      
+      // Show number of beers in order "X"+"Name"
       const orderinfo = {};
+      
+      // build orderinfo from e.order.forEach
       e.order.forEach(beer => {
-        const count = countInArray(e.order, beer);
+        const count = countInArray(e.order, beer); //how many times does the beer appears in order
         orderinfo[beer] = count;
       })
+      
+      // go into orderinfo object and change the text content with a count of exact beer
       for (name in orderinfo) {
         clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " | ";
       }
+      
       serveParent.appendChild(clone);
 
     })
   }
 
   function getTaps() {
-    //get data
-    let data = FooBar.getData();
-    //transfer data to JSON
-    const json = JSON.parse(data);
+
     //select the template from HTML to get the info about taps
     let template = document.querySelector("#tap").content;
     let parent = document.querySelector(".taps-grid");
-    //run forEach method to loop through all the taps we have in object
+
+    //clearing the parent element to prevent looping
     parent.innerHTML = "";
+
+    //run forEach method to loop through all the taps we have in object
     json.taps.forEach(element => {
       let clone = template.cloneNode(true);
       let status = clone.querySelector('.st0');
@@ -320,6 +321,8 @@ function loadJson() {
 
       clone.querySelector('.tap-name').textContent = element.beer;
       clone.querySelector('.capacity').textContent = (element.level * 0.01) + " litres";
+
+      //conditional statements for the level of the beer, so if its less then 75%,50%,25% its hiding the element in svg
       if (element.level < 1875) {
         full.classList.add("fadeOut");
         setTimeout(() => {
@@ -347,6 +350,8 @@ function loadJson() {
           empty.style.display = "none";
         }, 1500);
       }
+
+      //if tap is in use message out Tap in use and make the circle around in svg green
       if (element.inUse) {
         clone.querySelector('.in-use').textContent = "Tap in use";
         clone.querySelector('.in-use').classList.add("fadeIn");
@@ -363,15 +368,14 @@ function loadJson() {
   }
 
   function getBartenders() {
-    //get data
-    let data = FooBar.getData();
-    //transfer data to JSON
-    const json = JSON.parse(data);
-    //select the template from HTML to get the info about taps
+    //select the template from HTML to get the info about bartenders
     let template = document.querySelector("#bartender").content;
     let parent = document.querySelector(".bartenders-grid");
-    //run forEach method to loop through all the taps we have in object
+    
+    //clearing the parent element to prevent looping
     parent.innerHTML = "";
+
+    //run forEach method to loop through all the taps we have in object
     json.bartenders.forEach(element => {
       let clone = template.cloneNode(true);
       clone.querySelector('.bartender-name').textContent = element.name;
@@ -381,6 +385,7 @@ function loadJson() {
       let bartenderHead = clone.querySelector('#head');
       let bartenderBody = clone.querySelector('#body');
 
+      // using conditional statements for different statuses and changing its colors to be more appealing to user
       if (element.status === "WORKING") {
         bartenderBowtie.style.fill = "#79cc6d";
         bartenderHead.style.fill = "#79cc6d";
@@ -446,6 +451,7 @@ function loadJson() {
       parent.appendChild(clone);
     });
   }
+  //calling all the functions
   getStorage();
   getTaps();
   getOrders();
@@ -471,6 +477,7 @@ function getBeers() {
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
 
+    //conditional statements for making the alcohol level colorful
     if (element.alc < 6) {
       clone.querySelector('.alc').style.color = "#F4EB71";
     } else if (element.alc < 8) {
@@ -481,9 +488,9 @@ function getBeers() {
       clone.querySelector('.alc').style.color = "#CC614C";
     }
 
-    //sorting beer 
+    //sorting beer from weakest to strongest
     document.querySelector("#weakest").addEventListener("click", function () {
-
+      //the snippet of code we took from Petrograd assignment, where we used sorting
       let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
       let parent = document.querySelector('.beers')
       ps.sort(function (a, b) {
@@ -497,6 +504,8 @@ function getBeers() {
 
 
     })
+
+    //sorting beer from strongest to weakest
     document.querySelector("#strongest").addEventListener("click", function () {
 
       let ps = [].slice.call(document.querySelectorAll(".beers .beer-info"));
@@ -517,11 +526,11 @@ function getBeers() {
   });
 }
 
-// Current Time
+// Current Time 
 const now = new Date();
 const hours = now.getHours();
 const minutes = now.getMinutes();
-// show 0's
+// show 0's if the minutes are lower then 
 let min;
 if (minutes < 10) {
   min = minutes.toString();
