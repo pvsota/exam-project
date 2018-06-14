@@ -160,12 +160,13 @@ main {
   background-color: #4BC0BF; }
 
 .taps-grid {
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr); }
 
 .tap-info {
   text-align: center;
-  padding: 50px; }
+  padding: 25px; }
   .tap-info h5 {
     font-size: 1.2em;
     color: darkgray; }
@@ -186,6 +187,9 @@ main {
 
 .more {
   grid-row: span 2; }
+
+.storage {
+  padding: 50px; }
 
 .fadeIn {
   animation: fadeIn 1s forwards;
