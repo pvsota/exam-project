@@ -7,6 +7,7 @@ let myLineChart;
 let i = 0; // counter for interval we set 
 let j = 0; // counter for lenght of data array
 let beersTotal = 0; //counter for number of beers 
+let lastIdCounted = 0;
 let ordersTotal = 0;
 let storageData = ["Peter"];
 let storageDatasets = [];
@@ -271,6 +272,13 @@ function loadJson() {
     ordersTotal = json.queue[json.queue.length - 1].id + 1;
     document.querySelector("#people-total").textContent = ordersTotal;
     json.serving.forEach(e => {
+      //counting total amount of beers sold
+      if(e.id>lastIdCounted){
+        beersTotal += e.order.length;
+        lastIdCounted = e.id;
+        document.querySelector('#beers-total').textContent = beersTotal;
+    }
+
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
 
