@@ -319,11 +319,13 @@ var myBarChart = Chart.Bar(canvasD,{
       }
       if (element.inUse) {
         clone.querySelector('.in-use').textContent = "Tap in use";
+        clone.querySelector('.in-use').classList.add("fadeIn");
         clone.querySelector('.in-use').style.color = "#79CC6D";
         status.style.fill = "#79CC6D";
       } else {
         clone.querySelector('.in-use').textContent = "-";
         clone.querySelector('.in-use').style.color = "#24282B";
+        
       }
 
       parent.appendChild(clone);
@@ -353,11 +355,13 @@ var myBarChart = Chart.Bar(canvasD,{
         bartenderBowtie.style.fill = "#79cc6d";
         bartenderHead.style.fill = "#79cc6d";
         bartenderBody.style.fill = "#79cc6d";
+        clone.querySelector('.status-detail').classList.add("fadeIn");
         clone.querySelector('.status').style.color = "#79cc6d";
 
 
       }
       if (element.statusDetail === "pourBeer") {
+        clone.querySelector('.status-detail').classList.add("fadeIn");
         clone.querySelector('.status-detail').style.color = "#F4EB71";
         clone.querySelector('.status-detail').textContent = "Pouring beer";
         bartenderBowtie.style.fill = "#F4EB71";
@@ -366,6 +370,7 @@ var myBarChart = Chart.Bar(canvasD,{
 
       }
       if (element.statusDetail === "reserveTap") {
+        clone.querySelector('.status-detail').classList.add("fadeIn");
         clone.querySelector('.status-detail').style.color = "#F8BF61";
         clone.querySelector('.status-detail').textContent = "Reserving the tap";
         bartenderBowtie.style.fill = "#F8BF61";
@@ -375,6 +380,7 @@ var myBarChart = Chart.Bar(canvasD,{
 
       }
       if (element.statusDetail === "receivePayment") {
+        clone.querySelector('.status-detail').classList.add("fadeIn");
         clone.querySelector('.status-detail').style.color = "#985EFF";
         clone.querySelector('.status-detail').textContent = "Receiving payment";
         bartenderBowtie.style.fill = "#985EFF";
@@ -384,7 +390,12 @@ var myBarChart = Chart.Bar(canvasD,{
 
       }
       if (element.statusDetail === "startServing") {
-        clone.querySelector('.status-detail').style.color = "#4BC0BF"
+        clone.querySelector('.status-detail').classList.add("fadeIn");
+        clone.querySelector('.status-detail').style.color = "#4BC0BF";
+        clone.querySelector('.status-detail').textContent = "Starting to serve";
+        bartenderBowtie.style.fill = "#4BC0BF";
+        bartenderHead.style.fill = "#4BC0BF";
+        bartenderBody.style.fill = "#4BC0BF";
 
       }
 
