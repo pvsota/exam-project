@@ -322,10 +322,12 @@ function loadJson() {
         status.style.fill = "red";
       }
       if (element.inUse) {
-        clone.querySelector('.in-use').textContent = "Tap is currently in use";
+        clone.querySelector('.in-use').textContent = "Tap in use";
+        clone.querySelector('.in-use').style.color = "#79CC6D";
         status.style.fill = "#79CC6D";
       } else {
-        clone.querySelector('.in-use').textContent = "Tap is not in use";
+        clone.querySelector('.in-use').textContent = "-";
+        clone.querySelector('.in-use').style.color = "#24282B";
       }
 
       parent.appendChild(clone);

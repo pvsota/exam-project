@@ -78,6 +78,7 @@ main {
     align-content: space-between; }
   .orders .serve-order,
   .orders .order {
+    color: darkgray;
     font-weight: 200;
     padding-left: .5em; }
 
@@ -90,7 +91,7 @@ main {
     margin-bottom: -20px; }
     .bartender-info .bartender-basic p {
       font-size: 0.7em;
-      color: grey; }
+      color: darkgray; }
   .bartender-info .each-bartender {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -154,7 +155,13 @@ main {
   grid-template-columns: repeat(4, 1fr); }
 
 .tap-info {
-  text-align: center; }
+  text-align: center;
+  padding: 50px; }
+  .tap-info h5 {
+    font-size: 1.2em;
+    color: darkgray; }
+  .tap-info h3 {
+    font-size: 1.5em; }
   .tap-info svg {
     width: 70%; }
     .tap-info svg .st0 {

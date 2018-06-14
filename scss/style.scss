@@ -103,6 +103,7 @@ main{
     }
     .serve-order,
     .order{
+        color: darken($white, 25%);
         font-weight: 200;
         padding-left: .5em;
     }
@@ -116,7 +117,7 @@ main{
         margin-bottom: -20px;
         p{
             font-size: 0.7em;
-            color: grey;
+            color: darken($white, 25%);
         }
     }
     .each-bartender{
@@ -193,6 +194,14 @@ main{
 }
 .tap-info{
     text-align: center;
+    padding: 50px;
+    h5{
+        font-size: 1.2em;
+        color: darken($white, 25%);
+    }
+    h3{
+        font-size: 1.5em;
+    }
     svg{
         width: 70%;
         .st0{
