@@ -111,7 +111,7 @@ main {
     opacity: 0; }
 
 .beers {
-  padding-top: 1em;
+  padding: 3em;
   display: grid;
   grid-template-columns: repeat(2, 1fr); }
   .beers h3 {
@@ -120,22 +120,31 @@ main {
     font-size: 0.9em;
     font-weight: 200; }
   .beers .beer-info {
-    padding: 1.5em; }
+    margin: 1em;
+    border: darkgray solid 0.5px;
+    border-radius: 20px; }
   .beers .basic {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center; }
-  .beers .description {
-    padding-left: 3em; }
   .beers img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     text-align: center; }
-  .beers .overall-impression {
-    font-size: 0.9em;
-    color: darkgray; }
+  .beers #wrap {
+    display: grid;
+    grid-template-rows: 1fr 1fr; }
+    .beers #wrap #beer-title {
+      padding-top: 3em; }
+      .beers #wrap #beer-title #beer-category {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1em; }
+    .beers #wrap .overall-impression {
+      font-size: 0.9em;
+      color: darkgray; }
 
 .dropbtn {
   background-color: #24282B;
