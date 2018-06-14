@@ -11,6 +11,17 @@ let orderTotal = 0;
 let storageData = ["Peter"];
 let storageDatasets = [];
 
+//snippet of code, copied from stackoverflow
+function countInArray(array, what) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === what) {
+      count++;
+    }
+  }
+  return count;
+}
+
 // Chart.js library, we learned to use it from youtube tutorials and their documentation
 let canvas = document.getElementById('myChart');
 data = {
@@ -242,16 +253,7 @@ var myBarChart = Chart.Bar(canvasD,{
       let clone = template.cloneNode(true);
       clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
 
-      //snippet of code, copied from stackoverflow
-      function countInArray(array, what) {
-        let count = 0;
-        for (let i = 0; i < array.length; i++) {
-          if (array[i] === what) {
-            count++;
-          }
-        }
-        return count;
-      }
+      
 
       // Show number of beers in order "X"+"Name"
       const orderinfo = {};
@@ -267,13 +269,7 @@ var myBarChart = Chart.Bar(canvasD,{
       }
       
 
-        // let array = []; 
-        // array.push(i);
-        // console.log(array);
-        // const count = countInArray(array,i);
-        // console.log(count)
 
-     //   clone.querySelector('.order').textContent += i + " ";
 
 
       parent.appendChild(clone);
@@ -282,10 +278,14 @@ var myBarChart = Chart.Bar(canvasD,{
     json.serving.forEach(e => {
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
-      e.order.forEach(i => {
-        clone.querySelector('.serve-order').textContent += i + " ";
+      const orderinfo = {};
+      e.order.forEach(beer => {
+        const count = countInArray(e.order,beer);
+        orderinfo[beer]=count;
       })
-
+      for (name in orderinfo){
+      clone.querySelector('.serve-order').textContent += "  " + orderinfo[name] + " " + name + " / ";
+    }
       serveParent.appendChild(clone);
 
     })
