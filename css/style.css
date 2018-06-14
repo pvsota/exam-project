@@ -157,6 +157,12 @@ main {
     text-decoration: none;
     color: #4BC0BF; }
 
+#full,
+#half-full,
+#half,
+#almost-empty {
+  opacity: 1; }
+
 .taps-grid {
   padding-top: 20px;
   display: grid;

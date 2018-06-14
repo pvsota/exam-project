@@ -273,11 +273,11 @@ function loadJson() {
     document.querySelector("#people-total").textContent = ordersTotal;
     json.serving.forEach(e => {
       //counting total amount of beers sold
-      if(e.id>lastIdCounted){
+      if (e.id > lastIdCounted) {
         beersTotal += e.order.length;
         lastIdCounted = e.id;
         document.querySelector('#beers-total').textContent = beersTotal;
-    }
+      }
 
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
@@ -316,18 +316,31 @@ function loadJson() {
       clone.querySelector('.tap-name').textContent = element.beer;
       clone.querySelector('.capacity').textContent = (element.level * 0.01) + " litres";
       if (element.level < 1875) {
-        full.style.display = "none";
+        full.classList.add("fadeOut");
+        setTimeout(() => {
+          full.style.display = "none";
+        }, 1500);
       }
       if (element.level < 1250) {
-        halfFull.style.display = "none";
+        halfFull.classList.add("fadeOut");
+        setTimeout(() => {
+          halfFull.style.display = "none";
+        }, 1500);
       }
       if (element.level < 625) {
-        half.style.display = "none";
+        half.classList.add("fadeOut");
         status.style.fill = "red";
+        setTimeout(() => {
+          half.style.display = "none";
+        }, 1500);
+        
       }
       if (element.level < 60) {
-        empty.style.display = "none";
+        empty.classList.add("fadeOut");
         status.style.fill = "red";
+        setTimeout(() => {
+          empty.style.display = "none";
+        }, 1500);
       }
       if (element.inUse) {
         clone.querySelector('.in-use').textContent = "Tap in use";
@@ -337,7 +350,7 @@ function loadJson() {
       } else {
         clone.querySelector('.in-use').textContent = "-";
         clone.querySelector('.in-use').style.color = "#24282B";
-        
+
       }
 
       parent.appendChild(clone);
@@ -453,16 +466,16 @@ function getBeers() {
     clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
 
-    if (element.alc < 6){
+    if (element.alc < 6) {
       clone.querySelector('.alc').style.color = "#F4EB71";
-    } else if (element.alc < 8){
+    } else if (element.alc < 8) {
       clone.querySelector('.alc').style.color = "#F8BF61";
-    } else if (element.alc < 9){
+    } else if (element.alc < 9) {
       clone.querySelector('.alc').style.color = "#CE884A";
-    } else if (element.alc <= 10){
+    } else if (element.alc <= 10) {
       clone.querySelector('.alc').style.color = "#CC614C";
     }
-    
+
     //sorting beer 
     document.querySelector("#weakest").addEventListener("click", function () {
 
