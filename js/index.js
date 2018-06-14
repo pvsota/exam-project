@@ -241,14 +241,6 @@ var myBarChart = Chart.Bar(canvasD,{
     let serveParent = document.querySelector(".in-serve");
 
     parent.innerHTML = '';
-
-    // let lenghtOfQue = json.queue[json.queue.length];
-    // let lenghtOfServe = json.serving[json.serving.length];
-    // if (lenghtOfQue > lenghtOfServe){
-    //   document.querySelector('#total-orders').textContent = lenghtOfQue;
-    // } else{
-    //   document.querySelector('#total-orders').textContent = lenghtOfServe;
-    // }
     json.queue.forEach(e => {
       let clone = template.cloneNode(true);
       clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
