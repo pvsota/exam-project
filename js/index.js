@@ -388,6 +388,20 @@ function getBeers() {
   });
 }
 
+// Current Time
+const now = new Date();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+let min;
+if (minutes < 10){
+  min = minutes.toString();
+  min = "0" + min;
+} else {
+  min = minutes.toString();
+}
+
+document.querySelector("#current_time").textContent = " | " + hours + ":" + min;
+
 
 //navigation links
 let queSection = document.querySelector('.que');

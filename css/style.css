@@ -51,6 +51,16 @@ main {
   border-bottom: #e9e9e9 solid 1px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .topbar .time, .topbar .clients_counter, .topbar .beer_counter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; }
+    .topbar .time img, .topbar .clients_counter img, .topbar .beer_counter img {
+      width: 20%;
+      justify-self: end; }
+    .topbar .time #current_time, .topbar .clients_counter #current_time, .topbar .beer_counter #current_time {
+      display: grid;
+      justify-self: start; }
 
 .orders {
   margin: 25px;

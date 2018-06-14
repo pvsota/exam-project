@@ -68,6 +68,19 @@ main{
     border-bottom: $white solid 1px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    .time, .clients_counter, .beer_counter{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    img{
+        width: 20%;
+        justify-self: end;
+    }
+    #current_time{
+        display: grid;
+        justify-self: start;
+    }
+    }
 }
 .orders{
     margin: 25px;
