@@ -78,6 +78,7 @@ main {
     align-content: space-between; }
   .orders .serve-order,
   .orders .order {
+    color: #4BC0BF;
     padding-left: .5em; }
 
 .bartender-info {
