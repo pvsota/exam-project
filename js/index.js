@@ -91,56 +91,6 @@ function addSecondData() {
   myLineChart.update();
 }
 
-//bar chart from chart js
-let canvasD = document.getElementById('myDoughnut');
-let dataD = {
-  labels: storageDatasets,
-  datasets: [{
-    label: "Storage of beers",
-    backgroundColor: "rgba(255,99,132,0.2)",
-    borderColor: "rgba(255,99,132,1)",
-    borderWidth: 2,
-    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-    hoverBorderColor: "rgba(255,99,132,1)",
-    data: storageData,
-  }]
-};
-let optionD = {
-  animation: false,
-  scales: {
-
-    xAxes: [{
-      ticks: {
-        autoSkip: false,
-        beginAtZero: true,
-        fontColor: '#fff',
-        fontSize: 18
-      },
-      display: true,
-      responsive: true,
-
-    }],
-    yAxes: [{
-      ticks: {
-        beginAtZero: true,
-        fontColor: '#fff',
-        fontSize: 18,
-        // mirror: true
-
-      },
-      display: true,
-      responsive: true,
-
-    }]
-  }
-
-};
-
-
-var myBarChart = Chart.Bar(canvasD, {
-  data: dataD,
-  options: optionD
-});
 
 function loadJson() {
   //get data
