@@ -394,13 +394,10 @@ function loadJson() {
 
       }
       if (element.statusDetail === "startServing") {
-<<<<<<< HEAD
         clone.querySelector('.status-detail').classList.add("fadeIn");
         clone.querySelector('.status-detail').style.color = "#4BC0BF";
         clone.querySelector('.status-detail').textContent = "Starting to serve";
-=======
         clone.querySelector('.status-detail').style.color = "#4BC0BF";
->>>>>>> 6656f308e1f5eccac869f775227be3d5bdd6529a
         bartenderBowtie.style.fill = "#4BC0BF";
         bartenderHead.style.fill = "#4BC0BF";
         bartenderBody.style.fill = "#4BC0BF";

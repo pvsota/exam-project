@@ -39,6 +39,11 @@ body {
     transition-timing-function: ease-in-out;
     -webkit-transition: 250ms;
     -webkit-transition-timing-function: ease-in-out; }
+    .sidenav svg .st0 {
+      transition: 250ms;
+      transition-timing-function: ease-in-out;
+      -webkit-transition: 250ms;
+      -webkit-transition-timing-function: ease-in-out; }
   .sidenav svg:hover {
     fill: #4BC0BF; }
     .sidenav svg:hover .st0 {
@@ -68,7 +73,9 @@ main {
   margin: 25px;
   padding: 50px; }
   .orders h2 {
-    text-align: center; }
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 25px; }
   .orders .grid-orders {
     display: grid;
     grid-template-columns: 1fr 1fr; }
