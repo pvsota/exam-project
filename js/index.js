@@ -201,7 +201,7 @@ function loadJson() {
         return count;
       }
 
-      // Show number of beers in order "X" "Name"
+      // Show number of beers in order "X"+"Name"
       const orderinfo = {};
 
       // build orderinfo from e.order.forEach
@@ -211,7 +211,7 @@ function loadJson() {
       });
 
       for (name in orderinfo) {
-        clone.querySelector('.order').textContent += orderinfo[name] + name;
+        clone.querySelector('.order').textContent += "  " + orderinfo[name] + " " + name + " / ";
       }
       
 
