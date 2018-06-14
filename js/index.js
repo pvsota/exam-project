@@ -247,6 +247,9 @@ function loadJson() {
       let clone = template.cloneNode(true);
       clone.querySelector('.id').textContent = "Order nr. " + (e.id + 1);
 
+      clone.querySelector('.id').classList.add("fadeIn");
+      clone.querySelector('.order').classList.add("fadeIn");
+
 
 
       // Show number of beers in order "X"+"Name"
@@ -281,6 +284,8 @@ function loadJson() {
 
       let clone = serveTemplate.cloneNode(true);
       clone.querySelector('.serve-id').textContent = "Order nr. " + (e.id + 1);
+      clone.querySelector('.serve-id').classList.add("fadeIn");
+      clone.querySelector('.serve-order').classList.add("fadeIn");
 
       const orderinfo = {};
       e.order.forEach(beer => {

@@ -110,11 +110,17 @@ main{
         display: flex;
         align-content: space-between;
     }
+    .id, .serve-id{
+        opacity: 0;
+        font-weight: 200;
+        padding-left: 2em;
+    }
     .serve-order,
     .order{
+        opacity: 0;
         color: darken($white, 25%);
         font-weight: 200;
-        padding-left: .5em;
+        padding-left: 1em;
     }
 }
 .bartender-info {
