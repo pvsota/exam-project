@@ -459,6 +459,8 @@ function loadJson() {
 
 }
 
+
+
 function getBeers() {
   //get data
   let data = FooBar.getData();
@@ -525,6 +527,8 @@ function getBeers() {
     parent.appendChild(clone);
   });
 }
+
+
 
 // Current Time 
 const now = new Date();
