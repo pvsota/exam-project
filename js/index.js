@@ -450,7 +450,7 @@ function getBeers() {
     clone.querySelector('.category').textContent = element.category;
     clone.querySelector('.alc').textContent = element.alc + "%";
     clone.querySelector('.beer-info').dataset.alc = element.alc;
-    clone.querySelector('.overall-impression').textContent = "OVERALL IMPRESSION: " + element.description.overallImpression;
+    clone.querySelector('.overall-impression').textContent = element.description.overallImpression;
     clone.querySelector('img').src = "images/" + element.label;
     
     //sorting beer 
